@@ -1,24 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iuX-wF-ULF">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Fuzzy Search View Controller-->
+        <scene sceneID="jJI-ih-v2d">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="iuX-wF-ULF" customClass="FuzzySearchViewController" customModule="FuzzyTest2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MVP-d5-vQF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fa5-xd-JVb">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="cYI-Dj-DgI">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dst-bn-JRV">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="1Vw-ad-dkn"/>
+                                                </constraints>
+                                                <segments>
+                                                    <segment title="Standard"/>
+                                                    <segment title="Three"/>
+                                                    <segment title="levenshtein"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="updateFilter:" destination="iuX-wF-ULF" eventType="valueChanged" id="3pz-g5-OtC"/>
+                                                </connections>
+                                            </segmentedControl>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mxm-5W-fP6">
+                                                <rect key="frame" x="0.0" y="41" width="414" height="36"/>
+                                                <segments>
+                                                    <segment title="All"/>
+                                                    <segment title="A-Z 0-9"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="updateRestrictions:" destination="iuX-wF-ULF" eventType="valueChanged" id="NUz-sq-cWF"/>
+                                                </connections>
+                                            </segmentedControl>
+                                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="mFD-xE-Vb1">
+                                                <rect key="frame" x="-2" y="76" width="418" height="1"/>
+                                                <connections>
+                                                    <action selector="updateTolorance:" destination="iuX-wF-ULF" eventType="valueChanged" id="e6Z-vf-MM5"/>
+                                                </connections>
+                                            </slider>
+                                        </subviews>
+                                    </stackView>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="fLs-3t-DLA">
+                                        <rect key="frame" x="0.0" y="84" width="414" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="ulk-sb-Liy"/>
+                                        </constraints>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="iuX-wF-ULF" id="fKn-ep-th9"/>
+                                        </connections>
+                                    </searchBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BKX-50-nLz">
+                                        <rect key="frame" x="0.0" y="142" width="414" height="676"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArtistCell" textLabel="pnm-ZA-7fE" style="IBUITableViewCellStyleDefault" id="rTD-Ct-wP9">
+                                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rTD-Ct-wP9" id="Kjq-at-ZZV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pnm-ZA-7fE">
+                                                            <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="iuX-wF-ULF" id="sbr-9Y-i9D"/>
+                                            <outlet property="delegate" destination="iuX-wF-ULF" id="zJ1-Pp-8Ut"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fa5-xd-JVb" firstAttribute="centerX" secondItem="MVP-d5-vQF" secondAttribute="centerX" id="4Jh-Sl-oBq"/>
+                            <constraint firstItem="fa5-xd-JVb" firstAttribute="top" secondItem="CwX-MQ-2gx" secondAttribute="top" id="CxV-6b-1EB"/>
+                            <constraint firstItem="CwX-MQ-2gx" firstAttribute="bottom" secondItem="fa5-xd-JVb" secondAttribute="bottom" id="Lyf-CC-C5L"/>
+                            <constraint firstItem="fa5-xd-JVb" firstAttribute="leading" secondItem="CwX-MQ-2gx" secondAttribute="leading" id="Qae-C1-dRK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CwX-MQ-2gx"/>
                     </view>
+                    <connections>
+                        <outlet property="artistTableView" destination="BKX-50-nLz" id="ULi-ef-qLt"/>
+                        <outlet property="searchBar" destination="fLs-3t-DLA" id="mjE-Ri-ytc"/>
+                        <outlet property="toloranceSlider" destination="mFD-xE-Vb1" id="t0i-jy-IXF"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ifm-Wa-qiD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-324" y="-197"/>
         </scene>
     </scenes>
 </document>

@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		273D7EDC23CCCD8E005DEC8A /* ArtistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273D7EDB23CCCD8E005DEC8A /* ArtistViewModel.swift */; };
 		27E93B1923CCBE56004644C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E93B1823CCBE56004644C5 /* AppDelegate.swift */; };
 		27E93B1B23CCBE56004644C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E93B1A23CCBE56004644C5 /* SceneDelegate.swift */; };
 		27E93B1D23CCBE56004644C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E93B1C23CCBE56004644C5 /* ViewController.swift */; };
 		27E93B2023CCBE56004644C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E93B1E23CCBE56004644C5 /* Main.storyboard */; };
 		27E93B2223CCBE58004644C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27E93B2123CCBE58004644C5 /* Assets.xcassets */; };
 		27E93B2523CCBE58004644C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27E93B2323CCBE58004644C5 /* LaunchScreen.storyboard */; };
+		27E93B2D23CCBF34004644C5 /* FuzzySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E93B2C23CCBF34004644C5 /* FuzzySearchViewController.swift */; };
+		27E93B2F23CCBF46004644C5 /* Artists.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E93B2E23CCBF46004644C5 /* Artists.swift */; };
+		27E93B3123CCBF55004644C5 /* Artists.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27E93B3023CCBF55004644C5 /* Artists.plist */; };
+		27F70AC923CCF4EC002B47B9 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F70AC823CCF4EC002B47B9 /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		273D7EDB23CCCD8E005DEC8A /* ArtistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistViewModel.swift; sourceTree = "<group>"; };
 		27E93B1523CCBE56004644C5 /* FuzzyTest2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FuzzyTest2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E93B1823CCBE56004644C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27E93B1A23CCBE56004644C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +30,10 @@
 		27E93B2123CCBE58004644C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27E93B2423CCBE58004644C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27E93B2623CCBE58004644C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27E93B2C23CCBF34004644C5 /* FuzzySearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuzzySearchViewController.swift; sourceTree = "<group>"; };
+		27E93B2E23CCBF46004644C5 /* Artists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artists.swift; sourceTree = "<group>"; };
+		27E93B3023CCBF55004644C5 /* Artists.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Artists.plist; sourceTree = "<group>"; };
+		27F70AC823CCF4EC002B47B9 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +73,11 @@
 				27E93B2123CCBE58004644C5 /* Assets.xcassets */,
 				27E93B2323CCBE58004644C5 /* LaunchScreen.storyboard */,
 				27E93B2623CCBE58004644C5 /* Info.plist */,
+				27E93B2C23CCBF34004644C5 /* FuzzySearchViewController.swift */,
+				27E93B2E23CCBF46004644C5 /* Artists.swift */,
+				27E93B3023CCBF55004644C5 /* Artists.plist */,
+				273D7EDB23CCCD8E005DEC8A /* ArtistViewModel.swift */,
+				27F70AC823CCF4EC002B47B9 /* String+Extensions.swift */,
 			);
 			path = FuzzyTest2;
 			sourceTree = "<group>";
@@ -126,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27E93B2523CCBE58004644C5 /* LaunchScreen.storyboard in Resources */,
+				27E93B3123CCBF55004644C5 /* Artists.plist in Resources */,
 				27E93B2223CCBE58004644C5 /* Assets.xcassets in Resources */,
 				27E93B2023CCBE56004644C5 /* Main.storyboard in Resources */,
 			);
@@ -139,8 +155,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				27E93B1D23CCBE56004644C5 /* ViewController.swift in Sources */,
+				27F70AC923CCF4EC002B47B9 /* String+Extensions.swift in Sources */,
 				27E93B1923CCBE56004644C5 /* AppDelegate.swift in Sources */,
+				27E93B2F23CCBF46004644C5 /* Artists.swift in Sources */,
+				273D7EDC23CCCD8E005DEC8A /* ArtistViewModel.swift in Sources */,
 				27E93B1B23CCBE56004644C5 /* SceneDelegate.swift in Sources */,
+				27E93B2D23CCBF34004644C5 /* FuzzySearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
